@@ -177,7 +177,7 @@ a:hover, a:focus {
     padding: 6rem 0; /* Adjust padding as needed */
     text-align: center;
     position: relative; /* For potential overlay */
-    min-height: 40vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -423,7 +423,7 @@ max-width: 100px;
 
 .map-grid {
     display: grid;
-    grid-template-columns:   1fr;
+    grid-template-columns:   1fr 1fr;
     gap: 5px;
     padding: 5px;
 }
@@ -462,10 +462,6 @@ max-width: 100px;
 
 /* Tablet Styles */
 @media (min-width: 768px) {
-    .map-grid {
-        grid-template-columns:   1fr 1fr;
-    }
-
     h1 { font-size: 3rem; }
     h2 { font-size: 2.2rem; }
 
@@ -505,7 +501,7 @@ max-width: 100px;
 
     .hero {
         padding: 8rem 0;
-        min-height: 60vh; /* Restore original height for tablets */
+        min-height: 70vh;
     }
 
     .hero h1 {
@@ -525,7 +521,7 @@ max-width: 100px;
 
     .hero {
         padding: 10rem 0;
-    } 
+    }
      .hero h1 {
         font-size: 4rem;
     }
@@ -644,8 +640,4 @@ max-width: 100px;
     .cottage-layout {
         gap: 4rem; /* Wider gap on desktop */
     }
-     .social-icon {
-        max-width: 100px; /* Restore original size for desktop */
-    }
-
 }
