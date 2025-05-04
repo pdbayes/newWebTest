@@ -1,0 +1,643 @@
+/* --- Basic Reset & Defaults --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #2a5b3e; /* Example: Deep green */
+    --secondary-color: #f4a261; /* Example: Warm orange/tan */
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #fff;
+    --body-font: 'Arial', sans-serif; /* Choose better web fonts later (e.g., Google Fonts) */
+    --heading-font: 'Georgia', serif;
+    --base-spacing: 1rem; /* 16px */
+}
+
+html {
+    scroll-behavior: smooth; /* For smooth internal links */
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove bottom space */
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    margin-bottom: var(--base-spacing);
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: var(--base-spacing);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 calc(var(--base-spacing) * 1.5); /* 24px padding */
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+    background-color: #fff;
+    padding: var(--base-spacing) 0;
+    border-bottom: 1px solid #eee;
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav .nav-links {
+    list-style: none;
+    display: none; /* Hidden on mobile by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position below header */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: var(--base-spacing) 0;
+    text-align: center;
+}
+
+.main-nav.active .nav-links {
+    display: flex; /* Show when menu is active */
+}
+
+
+.main-nav .nav-links li {
+    margin: 0.5rem 0;
+}
+
+.main-nav .nav-links a {
+    color: var(--dark-text);
+    padding: 0.5rem 1rem;
+    display: block; /* Make links take full width */
+    text-decoration: none;
+    transition: background-color 0.7s ease;
+}
+
+.main-nav .nav-links a:hover,
+.main-nav .nav-links a:focus,
+.main-nav .nav-links a.active {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: block; /* Show hamburger on mobile */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.nav-cta {
+    margin-top: var(--base-spacing); /* Space above button in mobile menu */
+}
+
+
+/* --- Buttons --- */
+.cta-button, .button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cta-button:hover, .button:hover,
+.cta-button:focus, .button:focus {
+    background-color: #e78f4a; /* Darker shade of secondary */
+    text-decoration: none;
+    color: var(--light-text);
+    transform: translateY(-2px);
+}
+
+.button { /* Slightly less prominent button */
+    background-color: var(--primary-color);
+}
+.button:hover, .button:focus {
+    background-color: #1e4632; /* Darker primary */
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    background: url('../images/sunrise.jpg') no-repeat center center/cover; /* Add your hero image */
+    color: var(--light-text);
+    padding: 6rem 0; /* Adjust padding as needed */
+    text-align: center;
+    position: relative; /* For potential overlay */
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Add a dark overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust darkness */
+}
+
+.hero-content {
+    position: relative; /* To sit above overlay */
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
+   
+}
+
+.hero h1 {
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- General Sections --- */
+main section {
+    padding: 3rem 0; /* Vertical spacing between sections */
+}
+
+main section.container { /* Sections using the container */
+     padding-top: 3rem;
+     padding-bottom: 3rem;
+}
+
+.intro, .location-highlight {
+    text-align: left;
+    max-width: 800px; /* Constrain text width */
+    margin-left: auto;
+    margin-right: auto;
+    color:var(--light-text)
+}
+.intro_head {
+    text-align: left;
+    max-width: 800px; /* Constrain text width */
+    margin-left: 0;
+    margin-right: 0;
+    color:var(--light-text)
+}
+/* --- Cottage Previews --- */
+.cottage-previews {
+    background-color: var(--light-bg);
+}
+
+.cottage-previews h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column on mobile */
+    gap: 2rem;
+    margin-bottom: 2rem; /* Space before the 'View All' button */
+}
+
+.cottage-card {
+    display: grid;
+    grid-template-rows: 7fr 1fr;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding-bottom: 1.5rem;
+    align-items: top;
+}
+
+.cottage-card img {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.cottage-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cottage-card p {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.cottage-previews > .container > .button { /* Center the 'View All' button */
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--dark-text);
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: #fff;
+}
+
+.site-footer a:hover, .site-footer a:focus {
+    color: var(--secondary-color);
+}
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Start slightly lower */
+    transition: opacity 1.2s ease-out, transform 1s ease-out;
+    will-change: opacity, transform; /* Hint browser for performance */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .dropdown-toggle:hover {
+    background: #34495e;
+  }
+  
+  .dropdown-menu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-top: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+  }
+  
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: #16a085;
+    padding-left: 24px;
+  }
+  
+  /* Changed from display:block to visibility and opacity */
+  .dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Add gap to ensure hover state maintains between button and menu */
+  .dropdown-menu::after {
+    content: '';
+    height: 8px;
+    width: 100%;
+    position: absolute;
+    top: -8px;
+    left: 0;
+  }
+/* --- Responsive Design (Media Queries - Mobile First) --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between icons */
+    margin-top: 1rem; /* Space above icons */
+
+}
+.social-icon {
+
+max-width: 100px;
+}
+
+
+.map-grid {
+    display: grid;
+    grid-template-columns:   1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+}
+
+.map-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.h1map{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    color: #2c3e50;
+
+}
+
+
+
+
+.map-title {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #2c3e50;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+
+    .menu-toggle {
+        display: none; /* Hide hamburger on larger screens */
+    }
+
+    .main-nav .nav-links {
+        display: flex; /* Show links horizontally */
+        flex-direction: row;
+        position: static; /* Reset mobile positioning */
+        background-color: transparent;
+        border-top: none;
+        width: auto;
+        padding: 0;
+    }
+
+    .main-nav .nav-links li {
+        margin: 0 0 0 1.5rem; /* Space between horizontal links */
+    }
+     .main-nav .nav-links a {
+        padding: 0.2rem 0; /* Less padding for horizontal */
+        display: inline; /* Reset from block */
+     }
+     .main-nav .nav-links a:hover,
+     .main-nav .nav-links a:focus,
+     .main-nav .nav-links a.active {
+         background-color: transparent;
+         color: var(--primary-color);
+         text-decoration: underline;
+     }
+
+    .nav-cta {
+        margin-top: 0;
+        margin-left: 1.5rem;
+    }
+
+    .hero {
+        padding: 8rem 0;
+        min-height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .preview-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+
+    /* Adjust gallery grid, contact layout etc. */
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    h1 { font-size: 3.5rem; }
+
+    .hero {
+        padding: 10rem 0;
+    }
+     .hero h1 {
+        font-size: 4rem;
+    }
+
+    .preview-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for desktop */
+      
+    }
+    .whats-on{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* --- Cottages Page Specific Styles --- */
+
+.page-title {
+    text-align: center;
+    padding-top: 2rem; /* Less padding than other sections if needed */
+    padding-bottom: 1rem;
+}
+
+.cottage-section {
+    padding: 0rem 0; /* Generous padding for separation */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+/* Alternate background colors for sections */
+.cottage-section:nth-of-type(even) { /* Selects Linney based on structure above */
+    background-color: var(--light-bg);
+}
+
+.cottage-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 2rem; /* Space between image and text */
+    align-items: center;
+}
+
+.cottage-image img {
+    display:grid;
+    width:  100%;
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Optional subtle shadow */
+}
+
+.cottage-details h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Ensure heading color */
+}
+
+.cottage-details ul {
+    list-style: disc; /* Or use custom icons */
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cottage-details ul li {
+    margin-bottom: 0.5rem;
+}
+
+.cottage-details .button {
+    margin-top: 1rem;
+}
+
+/* --- Final CTA Section --- */
+.final-cta {
+    text-align: center;
+    padding: 3rem 0;
+}
+.final-cta h2 {
+    margin-bottom: 0.5rem;
+}
+.final-cta p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+
+/* --- Scroll Reveal for Cottage Sections (already exists, just ensure applied) --- */
+/* The .reveal and .reveal.active classes from the previous CSS are reused */
+/* Make sure the transition feels good for these larger sections */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Slightly larger offset */
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Slightly slower transition */
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive Adjustments for Cottage Page --- */
+
+@media (min-width: 768px) {
+    .cottage-layout {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablet and up */
+        gap: 3rem; /* Increase gap */
+    }
+
+    /* Style for alternating layout */
+    .cottage-layout.cottage-layout-reverse .cottage-image {
+        order: 2; /* Move image to the second column */
+    }
+     .cottage-layout.cottage-layout-reverse .cottage-details {
+        order: 1; /* Move details to the first column */
+    }
+}
+
+@media (min-width: 1024px) {
+     .cottage-section {
+        padding: 5rem 0; /* Even more padding on large screens */
+    }
+    .cottage-layout {
+        gap: 4rem; /* Wider gap on desktop */
+    }
+}
