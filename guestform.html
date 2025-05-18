@@ -73,7 +73,7 @@
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="Date" checktype="c4" value="" maxlength="25"
                                         placeholder="" />
-                                    <label>dd-MMM-yyyy</label> </span>
+                                    <label>dd/MM/yyyy</label> </span>
                                 <div class="zf-clearBoth"></div>
                                 <p id="Date_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
                             </div>
@@ -85,7 +85,7 @@
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="Date1" checktype="c4" value="" maxlength="25"
                                         placeholder="" />
-                                    <label>dd-MMM-yyyy</label> </span>
+                                    <label>dd/MM/yyyy</label> </span>
                                 <div class="zf-clearBoth"></div>
                                 <p id="Date1_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
                             </div>
@@ -1553,7 +1553,7 @@
             </div>
         </form>
     </div>
-    <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
+    <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormat('dd/MM/yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
         var zf_MandArray = ["Name_First", "Name_Last", "Date", "Date1", "Radio"];
